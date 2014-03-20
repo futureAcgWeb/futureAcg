@@ -36,8 +36,11 @@
  * @package WordPress
  * @subpackage Twenty_Ten
  * @since Twenty Ten 1.0
- */
-
+ */	
+ $includes_path = TEMPLATEPATH . '/includes/';
+	
+	//Loading jQuery and Scripts
+require_once $includes_path . 'FutureACG_tools.php';
 /**
  * Set the content width based on the theme's design and stylesheet.
  *

@@ -1,0 +1,41 @@
+#calendar_form select {
+    width: 50px;
+}
+#calendar_form table {
+    border-spacing: 0;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0;
+    width: 100%;
+	border-color: #CCCCCC;
+	background: none repeat scroll 0 0 #F9F9F9;
+}
+
+#calendar_form th {
+    background: none repeat scroll 0 0 #F1F1F1;
+}
+#calendar_form .urledit{
+	width: 44px;
+}
+/*#calendar_form .urladdr {
+    width: 300px;
+}
+#calendar_form .urlname {
+    width: 250px;
+}*/
+#url_1 > td{
+	border-bottom:1px solid;
+	border-top:1px solid;
+	border-bottom-color: #DFDFDF;
+    border-top-color: #FFFFFF;
+}
+
+#calendar_form table .botton {
+    float: right;
+    height: 20px;
+    padding: 0;
+    width: 20px;
+}
+#calendar_form .inputtext{
+	width:100%;
+}
