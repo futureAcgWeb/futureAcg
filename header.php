@@ -58,21 +58,19 @@
     <?php 
 		if ( is_page () || is_home() )// header for main pages
 		{?>
-        <div class = "indexFixed">
-			<div class = "headContainer">
-				<div id = "title">Future ACG</div>
-				<?php wp_nav_menu( 
-					array( 'container_id'	=> 'nav',
-							'before'    	=> '<div>',
-							'after'			=> '</div>',
-							'theme_location' => 'primary' ) ); ?>
-			<?php /*?>		<ul>
-						<li><h1><a href="">主页</a></h1></li>
-						<li><h1><a href="">新闻</a></h1></li>
-						<li><h1><a href="">作品</a></h1></li>
-						<li><h1><a href="">成员</a></h1></li>
-					</ul><?php */?>
-			</div>
+		<div class = "headContainer">
+			<div id = "title">Future ACG</div>
+			<?php wp_nav_menu( 
+				array( 'container_id'	=> 'nav',
+						'before'    	=> '<div>',
+						'after'			=> '</div>',
+						'theme_location' => 'primary' ) ); ?>
+		<?php /*?>		<ul>
+					<li><h1><a href="">主页</a></h1></li>
+					<li><h1><a href="">新闻</a></h1></li>
+					<li><h1><a href="">作品</a></h1></li>
+					<li><h1><a href="">成员</a></h1></li>
+				</ul><?php */?>
 		</div><!-- #nav -->
 		<?php }
 		else{// header for blog pages
