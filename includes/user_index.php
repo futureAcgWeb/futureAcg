@@ -34,4 +34,21 @@ function personal_index_init()
   );    
   register_post_type('personal_index',$args);  
 }
+add_filter( 'manage_edit-personal_index_columns', 'personal_index_columns' );
+function personal_index_columns( $columns ) {
+    $columns['owner'] = '成员';
+    unset( $columns['author'] );
+	unset( $columns['date'] );
+    return $columns;
+}
+add_action( 'manage_posts_custom_column', 'fill_personal_index_columns' );
+function fill_personal_index_columns( $column ) {
+    if ( 'owner' == $column ) {
+		$output = get_post_meta( get_the_ID(), 'index_owner', true );	
+		if( $output )	{
+			echo get_user_by( "ID" , $output) -> display_name ;
+			
+		}
+    }
+}
 ?>

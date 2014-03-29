@@ -28,7 +28,10 @@ body{
 	background-color: #fafafa !important;
 }
 body.logged-in{
- margin-top: -20px;
+ 	margin-top: -24px;
+}
+body>#wpadminbar {
+	background: transparent;
 }
 
 a{
@@ -508,6 +511,7 @@ div{
 	height: 1500px;
 	margin-right: auto;
 	margin-left: auto;
+	padding-top: 70px;
 	}
 	
 #blank{

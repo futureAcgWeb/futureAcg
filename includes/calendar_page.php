@@ -1,5 +1,6 @@
 <?php
 /* subtool: contest calendar */
+/* this page is for the edit page of this type of poster */
 // === Define Metabox Fields ====================================== //
 $meta_box_calendar = array(
 	'id' => 'meta_box_calendar',

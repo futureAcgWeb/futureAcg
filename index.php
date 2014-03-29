@@ -9,9 +9,7 @@ get_header(); ?>
 			<div id = "blank">
 			</div>
 			<div class = "name">
-				<div id = "name1">清华大学</div>
-				<div id = "name2">未来动漫兴趣团队</div>
-				<div id = "nameEng">Future ACG Innovotive Group</div>
+				<img src="<?php bloginfo('template_url'); ?>/img/youzi.png">
 			</div>
         </div>
         <div id = "wrap-1" class = "wrap wrapon">

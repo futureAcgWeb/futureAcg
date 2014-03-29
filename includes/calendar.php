@@ -1,5 +1,6 @@
 <?php   
 /* subtool: contest calendar 				*/
+/* this page is for the register of this post type */
 /********************************************/
 /* initializations***************************/
 add_action('init', 'calendar_init');   
@@ -33,7 +34,7 @@ function calendar_init()
     'has_archive' => true,    
     'hierarchical' => false,   
     'menu_position' => 5,   
-    'supports' => array('title','editor','author','thumbnail','categories','comments')   
+    'supports' => array('title','editor','thumbnail','categories','comments')   
   );    
   register_post_type('calendar',$args);  
  //
@@ -73,8 +74,8 @@ function calendar_columns( $columns ) {
 	unset( $columns['date'] );
     return $columns;
 }
-add_action( 'manage_posts_custom_column', 'fill_columns' );
-function fill_columns( $column ) {
+add_action( 'manage_posts_custom_column', 'fill_calendar_columns' );
+function fill_calendar_columns( $column ) {
     if ( 'contest_work_type' == $column ) {
 		$output = get_the_terms( get_the_ID(), 'contest_work_type');	
 		if($output)	{
