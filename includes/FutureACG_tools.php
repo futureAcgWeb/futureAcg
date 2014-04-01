@@ -46,10 +46,7 @@ function testpage(){
 function testfunction(){
 	global $wp_roles;
 	echo "<pre>";
-	$role_object = $wp_roles->get_role( "subscriber" );
-	$role_name_array = $wp_roles->role_names;
-
-	print_r($wp_roles);
+	print_r(get_user_index_url( 1 ));
 	echo "</pre>";
 	}
 

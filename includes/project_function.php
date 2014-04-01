@@ -49,12 +49,13 @@ function fACG_project_get_memberlist( $post_id ){
 	}
 	return $user_array;
 }
+//Current members
 function fACG_get_current_members(){
 	
 	$users = get_users( array('role' => "member"));
 	$users = array_merge($users , get_users( array('role' => "editor")));
 	return $users;
-	}
+}
 function fACG_project_get_members( $post_id , $args = array() ){	
 	  $defaults = array(
 		  'container'   => 'ul',

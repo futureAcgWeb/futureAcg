@@ -5,7 +5,7 @@ function personal_index_init()
 //register a new post type -> calendar
   $labels = array(   
     'name' => '个人主页',   
-    'singular_name' => 'personal_index',   
+    'singular_name' => 'member',   
     'add_new' => '新建主页',   
     'add_new_item' => '新建个人主页',   
     'edit_item' => '编辑个人主页',   
@@ -32,9 +32,10 @@ function personal_index_init()
     'menu_position' => 5,   
     'supports' => array('title','editor','thumbnail','categories','comments','post-formats')   
   );    
-  register_post_type('personal_index',$args);  
+  register_post_type('member',$args);
 }
-add_filter( 'manage_edit-personal_index_columns', 'personal_index_columns' );
+
+add_filter( 'manage_edit-member_columns', 'personal_index_columns' );
 function personal_index_columns( $columns ) {
     $columns['owner'] = '成员';
     unset( $columns['author'] );
@@ -44,9 +45,10 @@ function personal_index_columns( $columns ) {
 add_action( 'manage_posts_custom_column', 'fill_personal_index_columns' );
 function fill_personal_index_columns( $column ) {
     if ( 'owner' == $column ) {
-		$output = get_post_meta( get_the_ID(), 'index_owner', true );	
+		$output = get_post_meta( get_the_ID(), 'index_owner', true );
+
 		if( $output )	{
-			echo get_user_by( "ID" , $output) -> display_name ;
+			echo get_user_by( "id" , $output ) -> display_name ;
 			
 		}
     }

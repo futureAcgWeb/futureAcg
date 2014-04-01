@@ -3,14 +3,15 @@
 $meta_box_personal_index = array(
 	'id' => 'meta_box_personal_index',
 	'title' => '项目属性设置',
-	'page' => 'personal_index',
+	'page' => 'member',
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
 		array(
-			'name' 	=> 'index_owner',
-			'type' 	=> 'select',
+			'name' 	=> 	'index_owner',
+			'type' 	=> 	'select',
 			'title' =>	'成员',
+			'descp'	=>	'仅可替换为无主页（包括在垃圾箱中）的成员',
 		)
 		,
 	),	
@@ -36,38 +37,57 @@ function personal_index_show_box() {
 	echo '<input type="hidden" name="personal_index_meta_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
 	 ?>   
 
-<div  id="personal_index_form" >
+	<div  id="personal_index_form" >
     <?php 
-		print_r($meta_box_personal_index['fields']);
+		//print_r($meta_box_personal_index['fields']);
 		foreach($meta_box_personal_index['fields'] as $k => $f ){
 			personal_index_meta_show( $f );
-		} ?>
+		}//end of foreach ?>
+    </div>    
 	<?php 
-	}
+}
 	
 function personal_index_meta_show( $f ){
+		global $post;
 		echo "<div>";
 		echo "<strong>" . $f['title'] . "</strong>:";
+		echo $f['descp'];
+		echo "</br>";
 	
 		if( $f['name'] == 'index_owner' ){
-			?>
-            <select name="<?php echo $f['name']; ?>" dbvalue = "<?php echo get_post_meta( $post->ID, 'index_owner', true )  ?>" >
-            
-            </select>
-            <?
+			$exp = personal_index_owners();
 			
-		}
-		else{
+			$owner = get_post_meta( $post->ID, 'index_owner', true );
+			echo '<select name="' . $f['name'] .'" dbvalue = "' . $owner . '" >';
 			
-		}
-	
+			$users = get_users( array('role' => "member", 'exclude' => $exp));
+			$users = array_merge($users , get_users( array('role' => "former_member", 'exclude' => $exp )));
+			$u = get_user_by('id',$owner);
+			echo '<option value="' . $u->ID . '">'. $u->display_name . '</option>';
+			foreach( $users as $u ){
+		  		echo '<option value="' . $u->ID . '">'. $u->display_name . '</option>';
+			}
+			echo '</select>';		
+		}else{
+			echo "";
+		}//end of if-else
+		echo "</div>";
+}
+function personal_index_owners(){
+	global $wpdb;
+	$users = $wpdb->get_results('SELECT meta_value FROM wp_postmeta WHERE meta_key = "index_owner"');
+	$rslt = array();
+	foreach($users as $k => $u){
+		$rslt[$k] = $u->meta_value;
 	}
+	return $rslt;
+}
 
 
 /*-----------------------------------------------------------------------------------*/
 /*	Save data when post is edited
 /*-----------------------------------------------------------------------------------*/
- add_action('save_post', 'personal_index_save_data');
+add_action('save_post', 'personal_index_save_data');
 function personal_index_save_data($post_id) { 
 	global $meta_box_personal_index;
 	// verify nonce
@@ -93,8 +113,5 @@ function personal_index_save_data($post_id) {
 			delete_post_meta($post_id, $f['name'], $old);
 		}
 	}
-
-
 }
-
 ?>

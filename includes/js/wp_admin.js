@@ -140,4 +140,7 @@ jQuery(document).ready(function () {
 		}
 		jQuery('#member_in_charge').val(memberid);
 	});
+	/* hide some options for users */
+	jQuery("#new_role").children('[value="team_leader"]').hide();
+	jQuery("#new_role").children('[value="team_director"]').hide();
 });

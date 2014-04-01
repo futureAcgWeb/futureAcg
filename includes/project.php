@@ -96,8 +96,6 @@ function fill_project_columns( $column ) {
 }
 
 // add filter for the work type
-
-
 add_action( 'restrict_manage_posts', 'project_filter_list' );
 function project_filter_list() {
     $screen = get_current_screen();
