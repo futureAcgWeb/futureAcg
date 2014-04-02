@@ -85,7 +85,7 @@ div .info{
 
 .wrapper{
 	width: 940px;
-	height: 1500px;
+	height: 1900px;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -112,7 +112,7 @@ div .info{
 
 .photos{
 	margin-top: 80px;
-	height: 780px;
+	height: 880px;
 }
 
 #staticPic1{
@@ -138,8 +138,8 @@ div .info{
 }
 
 #staticPic3{
-	width: 350px;
-	height: 250px;
+	width: 460px;
+	
 	cursor: default;
 	float: left;
 	position: relative;
@@ -325,11 +325,11 @@ div .info{
 	float: right;
 }
 
-.contactus {
+.contactus{
 	padding-top: 60px;
-	height: auto;
-	padding-bottom: 16px;
+	height: 80px;
 }
+
 .contactInfo{
 	font-size: 18px;
 	padding-top: 20px;
