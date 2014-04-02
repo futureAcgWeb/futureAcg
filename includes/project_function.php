@@ -56,6 +56,7 @@ function fACG_get_current_members(){
 	$users = array_merge($users , get_users( array('role' => "editor")));
 	return $users;
 }
+// print functions
 function fACG_project_get_members( $post_id , $args = array() ){	
 	  $defaults = array(
 		  'container'   => 'ul',
@@ -109,5 +110,55 @@ function fACG_project_get_members( $post_id , $args = array() ){
 	  echo str_replace('"', '', json_encode($user_select));
 	  echo '</textarea>';
 }
+
+function project_index_print(){
+	
+				$args = array('post_type'=>'project','post_status'=>'publish');
+				$the_query = new WP_Query( $args );
+				// The Loop
+				$num_perpage = 4;
+				$page = 0;
+				if ( $the_query->have_posts() ) {
+					echo '<div class="projWrapper">';	
+					while ( $the_query->have_posts() ) {
+						$page += 1;
+						$the_query->the_post();
+						echo '<div class="projThumb" ';
+						if( $page == $num_perpage ){
+							echo 'style="padding-right:0px;"';	
+						}
+						echo '>';
+						if ( has_post_thumbnail() ) {
+							the_post_thumbnail( 'home_thumbnail' );
+						}
+						else {
+							echo '<img src="'.get_bloginfo('template_url').'/img/1.jpg" class = "projImg" />';
+						}
+						echo '<a href="'.get_permalink().'"><div class="mask">';
+						echo '<div class="infoContainer">
+									<div>' . get_the_title() . '</div>
+										<div>';
+										$end = get_post_meta( get_the_ID(), 'endmark', true );
+										if( empty($end ) ){
+											echo "进行中...";	
+										}else{
+											echo substr(get_post_meta( get_the_ID(), 'endtime', true ),0,4);
+										}
+						echo			'</div>
+									</div>
+								</div></a>';
+						echo '</div>';
+						if( $page == $num_perpage ){
+							break;	
+						}
+					}//end of while loop
+					echo '</div>';
+						
+				} else {
+					// no posts found
+				}
+				// Restore original Post Data 
+				wp_reset_postdata();
+	}
 
 ?>

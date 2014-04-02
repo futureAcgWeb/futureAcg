@@ -143,4 +143,13 @@ jQuery(document).ready(function () {
 	/* hide some options for users */
 	jQuery("#new_role").children('[value="team_leader"]').hide();
 	jQuery("#new_role").children('[value="team_director"]').hide();
+	jQuery('input[name="endmark"]').change(function(){
+		
+		if(jQuery(this).val()==0){
+			jQuery("#endtimediv").hide();
+			jQuery('input[name="endtime"]').val('');
+			}else{
+			jQuery("#endtimediv").show();
+			}
+		});
 });

@@ -1,7 +1,7 @@
 <?php
 
 $meta_box_personal_index = array(
-	'id' => 'meta_box_personal_index',
+	'id' => 'meta_box_member',
 	'title' => '项目属性设置',
 	'page' => 'member',
 	'context' => 'normal',
@@ -34,7 +34,7 @@ function personal_index_add_meta(){
 function personal_index_show_box() {
 	global $post,$meta_box_personal_index ;
 	// Use nonce for verification
-	echo '<input type="hidden" name="personal_index_meta_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
+	echo '<input type="hidden" name="member_meta_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
 	 ?>   
 
 	<div  id="personal_index_form" >
@@ -91,7 +91,7 @@ add_action('save_post', 'personal_index_save_data');
 function personal_index_save_data($post_id) { 
 	global $meta_box_personal_index;
 	// verify nonce
-	if (!wp_verify_nonce($_POST['personal_index_meta_nonce'], basename(__FILE__))) {
+	if (!wp_verify_nonce($_POST['member_meta_nonce'], basename(__FILE__))) {
 		return $post_id;
 	}
 	// check permissions

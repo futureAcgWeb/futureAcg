@@ -22,6 +22,7 @@ function future_acg_admin_script() {
           <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/includes/js/datepicker.js"></script>
     <?php
 	
+	
 }
 /* contest calendar */
 require_once(dirname(__FILE__)."\calendar.php");
@@ -45,9 +46,14 @@ function testpage(){
 	}
 function testfunction(){
 	global $wp_roles;
+
+
+					
+	
 	echo "<pre>";
-	print_r(get_user_index_url( 1 ));
+	//print_r(get_posts( array('post_type'=>'project') ));
 	echo "</pre>";
+	 project_index_print();
 	}
 
 // This just echoes the chosen line, we'll position it later

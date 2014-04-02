@@ -10,6 +10,7 @@ $meta_box_project = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
+		'endtime',
 		'endmark',
 		'member_in_charge',
 	),	
@@ -47,8 +48,21 @@ function project_show_box() {
       <label>
         <input name="endmark" type="radio" id="endmark_1" value="1" <?php if($meta){ echo 'checked="checked"'; }?> />
         已完结</label>
-	  <br />
-	</div>
+	  	<br />
+        <div id ="endtimediv" style="display: <?php if($meta){ echo "block"; }else{ echo "none"; } ?>;"><strong>完结时间</strong>: 
+        <?php
+        //2. end time
+        echo '<input name = "endtime" type="text" style="border:1px solid #999;" onClick="fPopCalendar(event,this,this)" onFocus="this.select()" readonly="readonly" ';
+        $meta = get_post_meta( $post->ID ,'endtime',true);
+        if(! empty($meta)){
+            echo 'dbvalue = "' . $meta . '"'; 
+        }		
+        echo '/>';
+        ?>
+        </div>
+       </div>
+    </div>
+    <br />
     <div><strong>项目成员</strong>（高亮的为项目负责人，点击成员姓名进行设置）:
     <?php fACG_project_get_members($post->ID , array('select' => true , 'container_id' => 'admin_project_members' ));  
 	
@@ -56,6 +70,9 @@ function project_show_box() {
 	$meta = get_post_meta( $post->ID ,'member_in_charge',true );
 	?>
     <input type="text" name = "member_in_charge" id = "member_in_charge" style="display:none" value = "<?php echo $meta;  ?>" />
+    <?php
+	
+			?>
 </div>
 	<?php 
 	}
@@ -82,13 +99,22 @@ function project_save_data($post_id) {
 	} elseif (!current_user_can('edit_post', $post_id)) {
 		return $post_id;
 	}
+	
 	foreach ($meta_box_project['fields'] as $field) {
 		$old = get_post_meta($post_id, $field, true);
 		$new = $_POST[$field];
-
+		if('endmark'==$field){	
+			if( $new == 1 ){
+			update_post_meta($post_id, $field,$new);
+			}else{
+				delete_post_meta($post_id, $field);
+			}
+			continue;	
+		}
 		if ($new && $new != $old) {
 			//add or update meta
 			 update_post_meta($post_id, $field,$new);
+
 		} elseif ('' == $new && $old) {
 			delete_post_meta($post_id, $field, $old);
 		}
@@ -100,6 +126,7 @@ function project_save_data($post_id) {
 		$ar = json_decode(str_replace('"', '', $new),true);
 		fACG_project_member_update($post_id,$ar);
 	}
+	//wp_die($_POST["endmark"]);
 
 }
 
