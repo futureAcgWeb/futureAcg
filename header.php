@@ -34,6 +34,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<link rel="stylesheet"type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/index.css" />
 <script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/index.js"> </script>
 <script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/jquery.js"> </script>
 <?php
@@ -58,29 +59,20 @@
     <?php 
 		if ( is_page () || is_home() )// header for main pages
 		{?>
-        <div class = "indexFixed">
-            <div id = "logo">
-                <img id = "logoimg"src="">
-            </div>
-            <?php wp_nav_menu( 
-                array( 'container_id'	=> 'nav',
-                        'before'    	=> '<h1>',
-                        'after'			=> '</h1>',
-                        'theme_location' => 'primary' ) ); ?>
-        <?php /*?>		<ul>
-                    <li><h1><a href="">主页</a></h1></li>
-                    <li><h1><a href="">新闻</a></h1></li>
-                    <li><h1><a href="">作品</a></h1></li>
-                    <li><h1><a href="">成员</a></h1></li>
-                </ul><?php */?>
-            <div id = "navFooter">
-                <a href="" style = "padding-right:6px;"><img src="<?php bloginfo('template_url'); ?>/img/weibo.png"></a>
-                <a href="http://www.renren.com/557939195/profile?ref=minifeed&sfet=103&fin=213&fid=23760439084&ff_id=302301913&platform=0&expose_time=1386914103"><img src="<?php bloginfo('template_url'); ?>/img/renren.png"></a>
-                    <p style = "font-size:10px;"> copyright&copy;<br>未来动漫兴趣团队|<br>
-                <?php wp_loginout(); ?>|RSS订阅</p>
-            </div><!-- #navFooter -->
-        
-        </div><!-- #nav -->
+		<div class = "headContainer">
+			<div id = "title">Future ACG</div>
+			<?php wp_nav_menu( 
+				array( 'container_id'	=> 'nav',
+						'before'    	=> '<div>',
+						'after'			=> '</div>',
+						'theme_location' => 'primary' ) ); ?>
+		<?php /*?>		<ul>
+					<li><h1><a href="">主页</a></h1></li>
+					<li><h1><a href="">新闻</a></h1></li>
+					<li><h1><a href="">作品</a></h1></li>
+					<li><h1><a href="">成员</a></h1></li>
+				</ul><?php */?>
+		</div><!-- #nav -->
 		<?php }
 		else{// header for blog pages
 			

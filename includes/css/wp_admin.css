@@ -39,3 +39,17 @@
 #calendar_form .inputtext{
 	width:100%;
 }
+
+/* admin page for projectd */
+#admin_project_members > li {
+	display: table-cell;
+	padding-right: 20px;
+}
+
+.member_in_charge{
+	background: #ec7455;
+	color: white;
+}
+#username {
+	width: 500px;
+}

@@ -22,15 +22,39 @@ function future_acg_admin_script() {
           <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/includes/js/datepicker.js"></script>
     <?php
 	
+	
 }
 /* contest calendar */
 require_once(dirname(__FILE__)."\calendar.php");
 require_once(dirname(__FILE__)."\calendar_page.php");
 
-/* personal index for users */
-require_once(dirname(__FILE__)."\personalIndex.php")
+/* project */
+require_once(dirname(__FILE__)."\project.php");
+require_once(dirname(__FILE__)."\project_page.php");
+require_once(dirname(__FILE__)."\project_function.php");
+
+/* user */
+require_once(dirname(__FILE__)."\user_function.php");
+require_once(dirname(__FILE__)."\user_avatars\simple-local-avatars.php"); 
+require_once(dirname(__FILE__)."\user_index.php");//personal index 
+require_once(dirname(__FILE__)."\user_index_member_page.php");//the editing page for members
+require_once(dirname(__FILE__)."\user_index_page.php");//the editing page for admins
+
+add_action('admin_menu', 'testpage');
+function testpage(){
+	add_menu_page( "test", "test", 1, "test", "testfunction" );
+	}
+function testfunction(){
+	global $wp_roles;
 
 
+					
+	
+	echo "<pre>";
+	//print_r(get_posts( array('post_type'=>'project') ));
+	echo "</pre>";
+	 project_index_print();
+	}
 
 // This just echoes the chosen line, we'll position it later
 /*$capability = 1;

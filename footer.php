@@ -7,18 +7,14 @@
  */
 ?>
 	</div><!-- #main -->
-
-		<?php 
-		if( is_page() || is_home()){
-		// footer wont be desplayed for index and main pages
-		}
-		else{
-	?>
-	<footer id="colophon" role="contentinfo">
-	</footer><!-- #colophon -->
-    <?php } ?>
+	
+	
 
 </div><!-- #wrapper -->
+
+<div class="footer">
+	<div class="copyright">copyright Future ACG 2014</div>
+</div>
 
 <?php
 	/* Always have wp_footer() just before the closing </body>

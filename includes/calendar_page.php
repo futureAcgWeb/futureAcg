@@ -1,5 +1,6 @@
 <?php
 /* subtool: contest calendar */
+/* this page is for the edit page of this type of poster */
 // === Define Metabox Fields ====================================== //
 $meta_box_calendar = array(
 	'id' => 'meta_box_calendar',
@@ -33,6 +34,9 @@ function calendar_add_meta(){
 /*-----------------------------------------------------------------------------------*/
 function calendar_show_box_url($json){
 	$obj = json_decode($json);
+	if(sizeof($obj)==0){
+		return "";
+	}
 	foreach( $obj as $k=>$o ){
 		//var_dump($o);
 
@@ -157,7 +161,14 @@ function calendar_save_data($post_id) {
 	foreach ($meta_box_calendar['fields'] as $field) {
 		$old = get_post_meta($post_id, $field, true);
 		$new = $_POST[$field];
- 
+		if('endmark'==$field){	
+			if( $new == 1 ){
+				update_post_meta($post_id, $field,$new);
+			}else{
+				delete_post_meta($post_id, $field);
+			}
+			continue;	
+		}
 		if ($new && $new != $old) {
 			//add or update meta
 			if($field == 'urls_json' ){
