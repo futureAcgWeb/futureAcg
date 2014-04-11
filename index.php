@@ -6,6 +6,8 @@
 get_header(); ?>
     <div id = "wrap">
         <div id = "wrap-0" class = "wrap wrapon">
+			<div id = "blank">
+			</div>
 			<div class = "name">
 				<img src="<?php bloginfo('template_url'); ?>/img/youzi.png">
 			</div>
@@ -28,18 +30,48 @@ get_header(); ?>
 				<img src="<?php bloginfo('template_url'); ?>/img/1.jpg" id = "staticPic3">
 			</div>
         </div>
-        
         <div id = "wrap-2" class = "wrap wrapon">
             <div class = "recentProjects">
 				<div id = "projTitle">...............................................................近期项目...............................................................</div>
-        <?php
-        		/*
-				*
-				*this is for the list of recent projects.
-				*@ \includes\project_function.php
-				*/
-				 project_index_print(); ?>
-        			<div class = "viewmore">
+				<div class = "projWrapper">
+					<div class = "projThumb">
+						<img src="<?php bloginfo('template_url'); ?>/img/1.jpg" class = "projImg">
+						<a href = "work.html"><div class = "mask">
+							<div class = "infoContainer">
+								<div>《管子的世界》</div>
+								<div>2013</div>
+							</div>
+						</div></a>
+					</div>
+					<div class = "projThumb">
+						<img src="<?php bloginfo('template_url'); ?>/img/1.jpg" class = "projImg">
+						<a href = "work.html"><div class = "mask">
+							<div class = "infoContainer">
+								<div>《管子的世界》</div>
+								<div>2013</div>
+							</div>
+						</div></a>
+					</div>
+					<div class = "projThumb">
+						<img src="<?php bloginfo('template_url'); ?>/img/1.jpg" class = "projImg">
+						<a href = "work.html"><div class = "mask">
+							<div class = "infoContainer">
+								<div>《管子的世界》</div>
+								<div>2013</div>
+							</div>
+						</div></a>
+					</div>
+					<div class = "projThumb" style = "padding-right:0px;">
+						<img src="<?php bloginfo('template_url'); ?>/img/1.jpg" class = "projImg">
+						<a href = "work.html"><div class = "mask">
+							<div class = "infoContainer">
+								<div>《管子的世界》</div>
+								<div>2013</div>
+							</div>
+						</div></a>
+					</div>
+				</div>
+				<div class = "viewmore">
 					<div id ="moreWork">
 						<a href = "works.html">全部作品</a>
 					</div>
@@ -49,7 +81,6 @@ get_header(); ?>
 				</div>
 			</div>
         </div>
-        
 		<div id = "wrap-3" class = "wrap wrapon">
 			<div class = "contactus">
 				<div id = "projTitle" style = "padding-bottom:20px;">...............................................................联系我们...............................................................</div>
@@ -62,5 +93,8 @@ get_header(); ?>
 			</div>
 		</div>
     </div>
+	<div id="container">
+		<!-- this is index-->
+	</div><!-- #container -->
 
 <?php get_footer(); ?>

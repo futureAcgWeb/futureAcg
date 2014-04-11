@@ -510,16 +510,82 @@ div{
 .home #main,
 .page #main{
 	width: 940px;
-	height: auto;
+	height: 1900px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-top: 70px;
 	}
 	
-#blank{
-	height: 150px;
+.footer{
+	height: 100px;
+	margin-bottom: -8px;
+	background-color: #e0e0e0;
+	margin-left: -8px;
+	margin-right: -8px;
 }
 
+.copyright{
+	font-size: 14px;
+	color: #999999;
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+}
+
+/*  for news page */
+#newstitle{
+	float: left;
+	font-size: 30px;
+}
+
+#titlenews{
+	font-size: 18px;
+}
+
+.news{
+	height: 800px;
+}
+
+.wrapper{
+	height: 800px;
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 100px;
+}
+/*news page end*/
+/*for member page*/
+.m_title{
+	font-size: 30px;
+}
+
+.m_titleEng{
+	font-size: 18px;
+	padding-bottom: 20px;
+}
+
+.member{
+	width: 145px;
+	float: left;
+	padding-right: 14px;
+	padding-top: 40px;
+}
+
+.memberimg{
+	width: 148px;
+	padding-right: 14px;
+	padding-bottom: 14px;
+	float: left;
+}
+
+.membername{
+	margin-right: auto;
+	margin-left: auto;
+	width: 80px;
+	font-size: 18px;
+}
+/*member page end*/
 .name {
 	margin-left: auto;
 	margin-right: auto;
