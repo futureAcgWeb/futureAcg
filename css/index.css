@@ -138,7 +138,7 @@ div .info{
 }
 
 #staticPic3{
-	width: 460px;
+	width: 450px;
 	
 	cursor: default;
 	float: left;
@@ -225,6 +225,7 @@ div .info{
 	font-size: 24px;
 	float: left;
 	width: 942px;
+	text-align: center;
 }
 
 .projWrapper{

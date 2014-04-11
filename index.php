@@ -31,7 +31,7 @@ get_header(); ?>
         
         <div id = "wrap-2" class = "wrap wrapon">
             <div class = "recentProjects">
-				<div id = "projTitle">...............................................................近期项目...............................................................</div>
+				<div id = "projTitle">● . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 近期项目 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ●</div>
         <?php
         		/*
 				*
@@ -52,7 +52,7 @@ get_header(); ?>
         
 		<div id = "wrap-3" class = "wrap wrapon">
 			<div class = "contactus">
-				<div id = "projTitle" style = "padding-bottom:20px;">...............................................................联系我们...............................................................</div>
+				<div id = "projTitle" style = "padding-bottom:20px;">● . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 联系我们 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ●</div>
 				<div class = "contactInfo">
 					Email: thufutureACG@gmail.com
 				</div>
