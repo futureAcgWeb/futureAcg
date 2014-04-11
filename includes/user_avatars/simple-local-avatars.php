@@ -271,7 +271,7 @@ class Simple_Local_Avatars {
 			?>
 			</td>
 		</tr>
-		<tr>
+		<?php /*?><tr>
 			<th scope="row"><?php _e('Rating'); ?></th>
 			<td colspan="2">
 				<fieldset id="simple-local-avatar-ratings" <?php disabled( empty( $profileuser->simple_local_avatar ) ); ?>>
@@ -286,7 +286,7 @@ class Simple_Local_Avatars {
 					?>
 					<p class="description"><?php _e( 'If the local avatar is inappropriate for this site, Gravatar will be attempted.' ); ?></p>
 				</fieldset></td>
-		</tr>
+		</tr><?php */?>
 	</table>
 	<?php
 	}
