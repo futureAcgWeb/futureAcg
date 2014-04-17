@@ -90,7 +90,7 @@ h1{
 
 #nav{
 	float: right;
-	padding-top: 4px;
+	padding-top: 34px;
 	margin-top: -24px;
 }
 
@@ -510,10 +510,11 @@ div{
 .home #main,
 .page #main{
 	width: 940px;
-	height: 1900px;
+	height: auto;
 	margin-right: auto;
 	margin-left: auto;
 	padding-top: 70px;
+	padding-bottom:100px;
 	}
 	
 .footer{
