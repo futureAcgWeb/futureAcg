@@ -1,20 +1,22 @@
 .header{
 	background-color: #1c1c1c;
-	width: auto;
+	width: 100%;
 	height: 78px;
 	margin-top:-8px;
-	margin-left: -8px;
-	margin-right: -8px;
 	font-size: 24px;
+	position: fixed;
+
 }
 
 body{
 	font-family: "微软雅黑","Arial";
-	background-color: #fafafa;
+	background-color: #dcdcdc;
+	color: #1c1c1c;
+	margin: 0px;
 }
 
 html{
-	
+
 }
 
 .header a{
@@ -31,16 +33,26 @@ html{
 	text-decoration: none;
 }
 
+.sidebar a{
+	text-decoration: none;
+	color: #1c1c1c;
+}
+
 div .info{
 	text-indent: 2em;
 }
 
+div .newscontent{
+	line-height: 24px;
+}
+
 .headContainer{
-	width: 900px;
+	width: 940px;
 	height: 24px;
-	padding-top: 23px;
+	padding-top: 15px;
 	margin-left: auto;
 	margin-right: auto;
+	padding-left: 20px;
 }
 
 #title{
@@ -55,7 +67,7 @@ div .info{
 
 .menu{
 	float: right;
-	padding-top: 4px;
+	padding-top: 10px;
 }
 
 #home{
@@ -80,24 +92,22 @@ div .info{
 
 #more{
 	float: left;
-	padding-right: 25px;
+	padding-right: 0px;
 }
 
 
 .footer{
 	height: 100px;
 	margin-bottom: -8px;
-	background-color: #e0e0e0;
-	margin-left: -8px;
-	margin-right: -8px;
+	background-color: #b4b4b4;
 }
 
 .wrapper{
-	height: 800px;
+	height: 900px;
 	width: 940px;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 100px;
+	padding-top: 150px;
 }
 
 .copyright{
@@ -112,6 +122,8 @@ div .info{
 #newstitle{
 	float: left;
 	font-size: 30px;
+	width: 225px;
+	height: 120px;
 }
 
 #titlenews{
@@ -120,9 +132,93 @@ div .info{
 
 .news{
 	height: 800px;
+	width: 940px;
 }
 
+#newsdash{
+	margin-top: 40px;
+}
 
+.newsmenu{
+	float: left;
+	width: 225px;
+	position: fixed;
+}
+
+.sidebar{
+	width: 225px;
+	padding-right: 25px;
+}
+
+.item{
+	font-size: 18px;
+	padding-top: 15px;
+	padding-bottom: 0px;
+}
+
+.numbar{
+	float: left;
+	padding-top: 60px;
+	height: 30px;
+}
+
+.itemnum{
+	float: left;
+	margin: 5px;
+	padding: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 15px;
+}
+
+.itemnum:hover{
+	background-color: #cf6c45;
+	color: #fff;
+}
+
+.itemnumActive{
+	float: left;
+	padding: 3px;
+	background-color: #cf6c45;
+	height: 15px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 5px;
+	color: #fff;
+}
+
+.content{
+	float: left;
+	width: 690px;
+	height: 800px;
+	margin-left: 25px;
+	border-radius: 10px;
+	background-color: #fafafa;
+	margin-left: 240px;
+}
+
+.cnewstitle{
+	font-size: 18px;
+	height: 30px;
+	padding-left: 15px;
+	vertical-align: middle;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.newscontent{
+	height: 635px;
+	background-color: #fff;
+	padding: 15px;
+	font-size: 14px;
+}
+
+.newstime{
+	color: #dcdcdc;
+	font-size: 14px;
+	float: right;
+	padding: 15px;
+}
 
 
 
