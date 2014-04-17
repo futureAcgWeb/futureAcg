@@ -1,16 +1,18 @@
 .header{
 	background-color: #1c1c1c;
-	width: auto;
+	width: 100%;
 	height: 78px;
 	margin-top:-8px;
-	margin-left: -8px;
-	margin-right: -8px;
 	font-size: 24px;
+	position: fixed;
+
 }
 
 body{
 	font-family: "微软雅黑","Arial";
-	background-color: #fafafa;
+	background-color: #dcdcdc;
+	margin: 0px;
+	margin-top: 8px;
 }
 
 html{
@@ -36,11 +38,12 @@ div .info{
 }
 
 .headContainer{
-	width: 900px;
+	width: 940px;
 	height: 24px;
-	padding-top: 23px;
+	padding-top: 15px;
 	margin-left: auto;
 	margin-right: auto;
+	padding-left: 20px;
 }
 
 #title{
@@ -55,7 +58,7 @@ div .info{
 
 .menu{
 	float: right;
-	padding-top: 4px;
+	padding-top: 10px;
 }
 
 #home{
@@ -80,16 +83,16 @@ div .info{
 
 #more{
 	float: left;
-	padding-right: 25px;
+	padding-right: 0px;
 }
 
 
 .footer{
-	height: 100px;
+	height: 80px;
 	margin-bottom: -8px;
-	background-color: #e0e0e0;
+	background-color: #b4b4b4;
 	margin-left: -8px;
-	margin-right: -8px;
+	border: 0px;
 }
 
 .wrapper{
@@ -97,13 +100,12 @@ div .info{
 	margin-left: auto;
 	margin-right: auto;
 	width: 940px;
-	padding-top: 100px;
+	padding-top: 150px;
 }
 
 .m_title{
 	font-size: 30px;
 }
-
 .m_titleEng{
 	font-size: 18px;
 	padding-bottom: 20px;
