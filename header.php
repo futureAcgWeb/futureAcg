@@ -35,8 +35,13 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <link rel="stylesheet"type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/index.css" />
-<script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/index.js"> </script>
 <script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/jquery.js"> </script>
+<?php if( is_home() ){ ?>
+<script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/index.js"> </script>
+<script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/jquery.SuperSlide.js"> </script>
+<?php } ?>
+
+
 <?php
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).

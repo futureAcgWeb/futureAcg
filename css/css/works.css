@@ -1,0 +1,243 @@
+.header{
+	background-color: #1c1c1c;
+	width: 100%;
+	height: 78px;
+	margin-top:-8px;
+	font-size: 24px;
+	position: fixed;
+	margin-bottom: 150px;
+
+}
+
+body{
+	font-family: "微软雅黑","Arial";
+	background-color: #e3e3e3;
+	color: #1c1c1c;
+	margin: 0px;
+}
+
+html{
+
+}
+
+.workitem p{
+	font-size: 12px;
+	color: #747577;
+	line-height: 2px;
+	padding-left: 40px;
+}
+
+.header a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.header a:hover{
+	color: #ecd291;
+}
+
+.sidemenu a{
+	text-decoration: none;
+	color: #1c1c1c;
+}
+
+.intro div{
+	text-indent: 2em;
+	line-height: 24px;
+}
+
+.headContainer{
+	width: 940px;
+	height: 24px;
+	padding-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 20px;
+}
+
+#title{
+	float: left;
+	color: #fff;
+	font-size: 30px;
+}
+
+.mactive{
+	color: #ecd291 !important;
+}
+
+.menu{
+	float: right;
+	padding-top: 10px;
+}
+
+#home{
+	float: left;
+	padding-right: 25px;
+}
+
+#news{
+	float: left;
+	padding-right: 25px;
+}
+
+#works{
+	float: left;
+	padding-right: 25px;
+	height: auto;
+}
+
+#members{
+	float: left;
+	padding-right: 25px;
+}
+
+#more{
+	float: left;
+	padding-right: 0px;
+}
+
+#workstitle{
+	float: left;
+	font-size: 30px;
+	width: 220px;
+	height: 120px;
+}
+
+#titleworks{
+	font-size: 18px;
+}
+
+.sidemenu{
+	position: fixed;
+	width: 220px;
+}
+
+.worknav{
+	width: 220px;
+	height: 600px;
+}
+
+.navitem{
+	width: 220px;
+	float: left;
+	padding-bottom: 30px;
+}
+
+.workthumb{
+	float: left;
+}
+
+.navtitle{
+	font-size: 24px;
+	float: left;
+	padding-left: 10px;
+	width: 120px;
+}
+
+.enavtitle{
+	font-size: 18px;
+	float: left;
+	padding-left: 10px;
+}
+
+.works{
+	width: 720px;
+	float: right;
+	padding-top: 120px;
+}
+
+.workitem{
+	width: 720px;
+	margin-bottom: 100px;
+	background-color: #fff;
+	height: 866px;
+}
+
+.itemdashtop{
+	width: 720px;
+	height: 5px;
+	background-color: #000;
+}
+
+.itemdashmid{
+	width: 640px;
+	height: 2px;
+	background-color: #cccccc;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+}
+
+.itemdashbottom{
+	width: 720px;
+	height: 5px;
+	background-color: #cccccc;
+	margin-top: 40px;
+}
+
+.workimg{
+	width: 720px;
+	height: 400px;
+}
+
+#proj1{
+	background-image: url(../img/tree.png);
+}
+
+#proj2{
+	background-image: url(../img/fruit.png);
+}
+
+.play{
+	padding-left: 40px;
+	padding-top: 220px; 
+}
+
+.info{
+	vertical-align: bottom;
+	height: 50px;
+	background-color: rgba(255,255,255,0.7);
+	padding-left: 40px;
+	margin-top: 26px;
+	font-size: 30px;
+}
+
+.intro{
+	padding: 40px;
+	font-size: 18px;
+}
+
+.thumb{
+	width: 648px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.thumbnail{
+	width: 200px;
+	height: 150px;
+	padding-right: 20px;
+}
+
+.footer{
+	height: 100px;
+	margin-bottom: -8px;
+	background-color: #b4b4b4;
+}
+
+.wrapper{
+	height: 2000px;
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 150px;
+}
+
+.copyright{
+	font-size: 14px;
+	color: #999999;
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+}
