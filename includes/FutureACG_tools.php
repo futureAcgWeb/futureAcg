@@ -46,7 +46,7 @@ function testpage(){
 	add_menu_page( "test", "test", 1, "test", "testfunction" );
 	}
 function testfunction(){
-	echo get_simple_local_avatar( 1 );
+	echo get_simple_local_avatar( 1 , 145 );
 	}
 
 // This just echoes the chosen line, we'll position it later

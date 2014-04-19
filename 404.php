@@ -8,23 +8,19 @@
  */
 
 get_header(); ?>
-
-	<div id="container">
-		<div id="content" role="main">
-
-			<div id="post-0" class="post error404 not-found">
-				<h1 class="entry-title"><?php _e( 'Not Found', 'twentyten' ); ?></h1>
-				<div class="entry-content">
-					<p><?php _e( 'Apologies, but the page you requested could not be found. Perhaps searching will help.', 'twentyten' ); ?></p>
-					<?php get_search_form(); ?>
-				</div><!-- .entry-content -->
-			</div><!-- #post-0 -->
-
-		</div><!-- #content -->
-	</div><!-- #container -->
-	<script type="text/javascript">
-		// focus on search field after it has loaded
-		document.getElementById('s') && document.getElementById('s').focus();
-	</script>
+ <div id = "wrap">
+        <div id = "wrap-0" class = "wrap wrapon">
+        	
+			<div style = "margin-left: auto;margin-right: auto;width: 300px;">
+            	<div style="
+                    font-size: 29px;
+                    margin-bottom: 10px;
+                    color: #635F5F;
+                    margin-top: 27px;
+                "> 404 您要的页面未找到 </div>
+				<img src="<?php bloginfo('template_url'); ?>/img/youzi.png">
+			</div>
+        </div>
+ </div>
 
 <?php get_footer(); ?>

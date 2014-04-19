@@ -1,16 +1,13 @@
 /* for the banner */
-@charset "utf-8";
-*{margin:0;padding:0;list-style:none;}
-body{background:#666;font:normal 12px/22px 宋体;}
-img{border:0;}
-a{text-decoration:none;color:#333;}
-a:hover{color:#1974A1;}
-
+.hd>ul {
+margin: 0px;
+padding: 0px;
+}
 .foucebox{width:940px;height:497px;margin:30px auto;}
 .foucebox .bd{position:relative;float:left;width:750px;height:497px;overflow:hidden;}
 .foucebox .showDiv{position:absolute;left:0px;top:0px;display:none;width:750px;height:497px;}
 .foucebox .showDiv img{width:750px;height:497px;}
-.foucebox .showDiv p{position:absolute;left:20px;bottom:10px;padding-right:20px;z-index:9;height:90px;}
+.foucebox .showDiv p{position:absolute;left:20px;bottom:10px;padding-right:20px;z-index:9;height:90px;font-size: 14px;}
 .foucebox .showDiv h2{position:absolute;left:20px;bottom:60px;width:88%;height:34px;background:url(../images/foucebox_h2.png) no-repeat 0 4px;_background:none;padding-left:40px;_padding-left:0;font-size:24px;font-family:"Microsoft Yahei";line-height:34px;z-index:9;overflow:hidden;}
 .foucebox .showDiv h2 a{color:#8ecf12;font-weight:normal;}
 .foucebox .foucebox_bg{position:absolute;left:0;bottom:0;width:750px;height:117px;background:white;filter:alpha(opacity=70);opacity:0.7;z-index:8;overflow:hidden;}
@@ -39,11 +36,14 @@ a:hover{color:#1974A1;}
 body{
 	font-family: "微软雅黑","Arial";
 	background-color: #fafafa;
+	overflow-y: scroll;
+}
+#wrapper {
+	height: 100%;
+	min-height: 100%;
+	position: relative;
 }
 
-html{
-	
-}
 
 .header a{
 	text-decoration: none;
@@ -64,9 +64,9 @@ div .info{
 }
 
 .headContainer{
-	width: 900px;
+	width: 940px;
 	height: 24px;
-	padding-top: 23px;
+	padding-top: 15px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -90,6 +90,7 @@ div .info{
 	float: left;
 	padding-right: 25px;
 }
+
 
 #news{
 	float: left;
@@ -356,7 +357,7 @@ div .info{
 
 .contactus{
 	padding-top: 60px;
-	height: 80px;
+	height: 120px;
 }
 
 .contactInfo{
@@ -370,9 +371,18 @@ div .info{
 	background-color: #e0e0e0;
 	margin-left: -8px;
 	margin-right: -8px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	padding-right: 16px;
+}
+.error404 .footer{
+	
 }
 
-
+.footer.page{
+	background-color: #b4b4b4;!important
+}
 .copyright{
 	font-size: 14px;
 	color: #999999;
@@ -381,7 +391,9 @@ div .info{
 	margin-left: auto;
 	padding-top: 10px;
 }
-
+.page > .copyright{
+	color: #535050;!important
+}
 
 
 

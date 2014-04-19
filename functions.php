@@ -13,7 +13,6 @@ add_image_size( 'home_news_l_thumbnail',650,400,true  );
 add_image_size( 'home_news_s_thumbnail',270,210,true  );
 }
 
-
 /**
  * Set the content width based on the theme's design and stylesheet.
  *

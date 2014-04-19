@@ -40,7 +40,13 @@
 <script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/index.js"> </script>
 <script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/jquery.SuperSlide.js"> </script>
 <?php } ?>
-
+<?php if (is_page('news')){ ?>
+<script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/news.js"> </script>
+<link rel="stylesheet"type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/news.css" />
+<?php } ?>
+<?php if (is_page('members')){ ?>
+<link rel="stylesheet"type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/members.css" />
+<?php } ?>
 
 <?php
 	/* We add some JavaScript to pages with the comment form
@@ -61,28 +67,15 @@
 <body <?php body_class(); ?>>
 <div id="wrapper" class="hfeed">
 	<div id="header">
-    <?php 
-		if ( is_page () || is_home() )// header for main pages
-		{?>
 		<div class = "headContainer">
-			<div id = "title">Future ACG</div>
+			<div id = "title"><img src="<?php bloginfo('template_url'); ?>/img/LOGO.png"></div>
 			<?php wp_nav_menu( 
 				array( 'container_id'	=> 'nav',
 						'before'    	=> '<div>',
 						'after'			=> '</div>',
 						'theme_location' => 'primary' ) ); ?>
-		<?php /*?>		<ul>
-					<li><h1><a href="">主页</a></h1></li>
-					<li><h1><a href="">新闻</a></h1></li>
-					<li><h1><a href="">作品</a></h1></li>
-					<li><h1><a href="">成员</a></h1></li>
-				</ul><?php */?>
 		</div><!-- #nav -->
-		<?php }
-		else{// header for blog pages
-			
-			}
-		?>
+
 	</div><!-- #header -->
 
 	<div id="main">

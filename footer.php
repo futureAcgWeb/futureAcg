@@ -10,12 +10,13 @@
 	
 	
 
+
+<?php  if(!is_page('news')){	?>
+    <div class="footer <?php if(is_page()){ echo "page"; }?>">
+        <div class="copyright">copyright Future ACG 2014</div>
+    </div>
+<?php	}  ?>
 </div><!-- #wrapper -->
-
-<div class="footer">
-	<div class="copyright">copyright Future ACG 2014</div>
-</div>
-
 <?php
 	/* Always have wp_footer() just before the closing </body>
 	 * tag of your theme, or you will break many plugins, which

@@ -166,4 +166,11 @@ function positions_set(){
 	}
 	wp_redirect('users.php');
 }
+add_filter('user_contactmethods','my_user_contactmethods');
+function my_user_contactmethods($user_contactmethods ){
+	 $user_contactmethods ['weibo'] = '新浪微博';
+	 $user_contactmethods ['t-qq'] = '腾讯QQ';
+	 $user_contactmethods ['profe'] = '职业';
+	 return $user_contactmethods ;
+}
 ?>

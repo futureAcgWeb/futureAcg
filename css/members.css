@@ -1,32 +1,3 @@
-.header{
-	background-color: #1c1c1c;
-	width: 100%;
-	height: 78px;
-	margin-top:-8px;
-	font-size: 24px;
-	position: fixed;
-
-}
-
-body{
-	font-family: "微软雅黑","Arial";
-	background-color: #dcdcdc;
-	margin: 0px;
-	margin-top: 8px;
-}
-
-html{
-	
-}
-
-.header a{
-	text-decoration: none;
-	color: #fff;
-}
-
-.header a:hover{
-	color: #ecd291;
-}
 
 .viewmore a{
 	color: #1c1c1c;
@@ -36,79 +7,8 @@ html{
 div .info{
 	text-indent: 2em;
 }
-
-.headContainer{
-	width: 940px;
-	height: 24px;
-	padding-top: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 20px;
-}
-
-#title{
-	float: left;
-	color: #fff;
-	font-size: 30px;
-}
-
 .mactive{
 	color: #ecd291 !important;
-}
-
-.menu{
-	float: right;
-	padding-top: 10px;
-}
-
-#home{
-	float: left;
-	padding-right: 25px;
-}
-
-#news{
-	float: left;
-	padding-right: 25px;
-}
-
-#works{
-	float: left;
-	padding-right: 25px;
-}
-
-#members{
-	float: left;
-	padding-right: 25px;
-}
-
-#more{
-	float: left;
-	padding-right: 0px;
-}
-
-
-.footer{
-	height: 80px;
-	margin-bottom: -8px;
-	background-color: #b4b4b4;
-	margin-left: -8px;
-	border: 0px;
-}
-
-.wrapper{
-	height: 800px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 940px;
-	padding-top: 150px;
-}
-
-.m_title{
-	font-size: 30px;
-}
-.m_titleEng{
-	font-size: 18px;
-	padding-bottom: 20px;
 }
 
 .member{
@@ -116,6 +16,7 @@ div .info{
 	float: left;
 	padding-right: 14px;
 	padding-top: 40px;
+	display:table-cell
 }
 
 .memberimg{
@@ -131,20 +32,18 @@ div .info{
 	width: 80px;
 	font-size: 18px;
 }
-
-.copyright{
-	font-size: 14px;
-	color: #999999;
-	width: 940px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-top: 10px;
+#member_box ul {
+	margin: 0px;
+	list-style: none;
+	overflow: hidden;
+	padding-bottom: 80px;
 }
 
-
-
-
-
+.memberimg > div{
+	width: 145px;
+	height: 145px;
+	position: absolute;
+}
 
 
 
