@@ -69,29 +69,24 @@ function project_init()
 // add columns on the list pag/e--
 add_filter( 'manage_edit-project_columns', 'project_columns' );
 function project_columns( $columns ) {
-    $columns['project_type'] = '作品类型';
 	$columns['project_state'] = '项目状态';
-	$columns['author'] = '项目负责人';
+	$columns['person_in_charge'] = '项目负责人';
+	unset( $columns['author'] );
 	unset( $columns['date'] );
     return $columns;
 }
 
 add_action( 'manage_posts_custom_column', 'fill_project_columns' );
 function fill_project_columns( $column ) {
-    if ( 'project_type' == $column ) {
-		$output = get_the_terms( get_the_ID(), 'project_type');	
-		if($output)	{
-			foreach( $output as $o ){
-			echo "[<a href='?post_type=project&project_type=$o->id'>" . $o->name . "</a>]";
-			}//end of foreach
-		}//end of inner if
-    }
-	elseif('project_state' == $column){
+		if('project_state' == $column){
 		if($meta = get_post_meta( get_the_ID() ,'endmark',true )){
 				echo '已完结';	
 		}else{
 				echo '进行中';	
 		}//end of inner if-else
+	}elseif('person_in_charge'  == $column){
+		echo fACG_get_member_in_charge(get_the_ID());	
+		
 	}
 }
 

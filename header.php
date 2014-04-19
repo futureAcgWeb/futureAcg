@@ -47,6 +47,9 @@
 <?php if (is_page('members')){ ?>
 <link rel="stylesheet"type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/members.css" />
 <?php } ?>
+<?php if (is_page('projects')){ ?>
+<link rel="stylesheet"type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/works.css" />
+<?php } ?>
 
 <?php
 	/* We add some JavaScript to pages with the comment form
@@ -69,6 +72,9 @@
 	<div id="header">
 		<div class = "headContainer">
 			<div id = "title"><img src="<?php bloginfo('template_url'); ?>/img/LOGO.png"></div>
+            <?php if(!is_user_logged_in()){?>
+            <div id = "login"><?php wp_loginout(); ?> </div>
+            <?php }?>
 			<?php wp_nav_menu( 
 				array( 'container_id'	=> 'nav',
 						'before'    	=> '<div>',

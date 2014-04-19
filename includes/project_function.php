@@ -53,7 +53,7 @@ function fACG_project_get_memberlist( $post_id ){
 function fACG_get_current_members(){
 	
 	$users = get_users( array('role' => "member"));
-	$users = array_merge($users , get_users( array('role' => "editor")));
+	$users = array_merge($users , get_users( array('role' => "former_member")));
 	return $users;
 }
 // print functions
@@ -70,23 +70,21 @@ function fACG_project_get_members( $post_id , $args = array() ){
 		  'select'		=> false
 	  );
 	  $args = wp_parse_args( $args, $defaults );
-	  
-	  echo '<'.$args['container'].' ';
-	  if( '' != $args['container_class']){	echo 'class = "' . $args['container_class'] .'"'; 	}
-	  if( '' != $args['container_id']){	echo 'id = "' . $args['container_id'] .'"'; 	}
-	  echo '>';// print container
+	  if($args['container']){
+		  echo '<'.$args['container'].'  ';
+		  if( '' != $args['container_class']){	echo 'class = "' . $args['container_class'] .'"'; 	}
+		  if( '' != $args['container_id']){	echo 'id = "' . $args['container_id'] .'"'; 	}
+		  echo '>';// print container
+	  }
 	  $user_select = fACG_project_get_memberlist($post_id) ;
 	  if( $args['select'] ){
 		  $users = fACG_get_current_members();
 	  }else{
-		  $users = get_users( array( 'include'	=> fACG_project_get_memberlist($post_id) ) );
+		  $users = get_users( array( 'include'	=> fACG_project_get_memberlist($post_id)) );
 	  }
 	  foreach( $users as $u ){
 		  echo $args['before'];
 		  $user_print = $u->display_name;
-		  if( $args['link'] ){ 
-				  // to do : add personal page link 
-		  }
 		  if( $args['select'] ){
 			  $pinch = get_post_meta( $post_id ,'member_in_charge',true );
 			  	
@@ -98,6 +96,7 @@ function fACG_project_get_members( $post_id , $args = array() ){
 			  
 			  if ( $u->ID == $pinch ){	$user_print = $user_print . 'class = "member_in_charge"'; }
 			  $user_print = $user_print . ' memberId ="'. $u->ID  .'">'.$u->display_name.'</label>' ;
+		  }else{
 		  }
 		  
 		  echo $user_print;
@@ -105,12 +104,40 @@ function fACG_project_get_members( $post_id , $args = array() ){
 	  }
 	  ?>
 	  <?php
-	  echo '</'.$args['container'].'>';
-	  echo '<textarea name="member_json" id="member_json" cols="45" rows="5" style="display:none">'; // 
-	  echo str_replace('"', '', json_encode($user_select));
-	  echo '</textarea>';
+	  if($args['container']){
+	  		echo '</'.$args['container'].'>';
+	  }
+	  if( $args['select'] ){
+		  echo '<textarea name="member_json" id="member_json" cols="45" rows="5" style="display:none">'; // 
+		  echo str_replace('"', '', json_encode($user_select));
+		  echo '</textarea>';
+	  }
 }
-
+function fACG_get_member_in_charge( $post_id, $link = false ){
+	$user_id = get_post_meta( $post_id, 'member_in_charge', true );
+	$user = get_user_by( 'id', $user_id );
+	return $user->display_name;
+}
+function fACG_get_member_in_charge_id( $post_id){
+	$user_id = get_post_meta( $post_id, 'member_in_charge', true );
+	return $user_id;
+}
+function fACG_get_project_type($post_id, $link = false, $admin = false){
+	$output = get_the_terms( $post_id, 'project_type');	
+	$str = "";
+	if($output)	{
+			foreach( $output as $o ){
+				if($link){
+					if($admin){
+						$str  = $str . "[<a href='?post_type=project&project_type=$o->id'>" . $o->name . "</a>]";
+					}
+				}else{
+					$str  = $str . "[" . $o->name . "]";
+				}
+			}//end of foreach
+	}//end of if
+	return $str;
+}
 function project_index_print(){
 	
 				$args = array('post_type'=>'project','post_status'=>'publish');

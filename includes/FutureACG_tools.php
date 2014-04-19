@@ -46,7 +46,10 @@ function testpage(){
 	add_menu_page( "test", "test", 1, "test", "testfunction" );
 	}
 function testfunction(){
-	echo get_simple_local_avatar( 1 , 145 );
+	$user = new WP_User(1);
+	echo '<pre>';
+	print_r($user);
+	echo '</pre>';
 	}
 
 // This just echoes the chosen line, we'll position it later

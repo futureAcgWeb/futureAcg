@@ -15,7 +15,7 @@ get_header(); ?>
                 <div class = "sidebar">
                 <?php 
 					$current_page = max($_GET['nav_paged'],1);
-					$posts_per_page = 3;
+					$posts_per_page = 5;
 					$postlist = get_posts( array(	'category'         	=> 'news',
 													'orderby'          	=> 'post_date',
 													'order'            	=> 'DESC',

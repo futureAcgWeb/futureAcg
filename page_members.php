@@ -38,7 +38,7 @@ get_header(); ?>
                         	<div class = "member_mask" ></div>
                             <?php echo get_simple_local_avatar( $m->ID , $size = 145 ,$default = '', $alt = ''); ?>
                         </div>
-                        <div class = "membername" user = "<?php echo $m->nickname; ?>"><?php echo $m->first_name ." ". $m->last_name; ?></div>
+                        <div class = "membername" user = "<?php echo $m->nickname; ?>"><?php echo $m->display_name; ?></div>
                         </a>
                     </li>
                     <?php

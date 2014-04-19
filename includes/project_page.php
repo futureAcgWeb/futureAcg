@@ -10,9 +10,11 @@ $meta_box_project = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
+		'starttime',
 		'endtime',
 		'endmark',
 		'member_in_charge',
+		'remark',
 	),	
 );
 
@@ -41,7 +43,20 @@ function project_show_box() {
 	 ?>   
 
 <div  id="project_form" >
-	<div><strong>项目状态</strong>: 
+	<div>
+      <div id ="starttimediv"><strong>开始时间</strong>: 
+        <?php
+        //2. end time
+        echo '<input name = "starttime" type="text" style="border:1px solid #999;" onClick="fPopCalendar(event,this,this)" onFocus="this.select()" readonly="readonly" ';
+        $meta = get_post_meta( $post->ID ,'starttime',true);
+        if(! empty($meta)){
+            echo 'dbvalue = "' . $meta . '"'; 
+        }		
+        echo '/>';
+        ?>
+      </div>
+      <br />
+      <strong>项目状态</strong>: 
 	  <label>
 	         <input name="endmark" type="radio" id="endmark_0" value="0" <?php if(!$meta){ echo 'checked="checked"'; } ?> />
 进行中</label>
@@ -70,10 +85,15 @@ function project_show_box() {
 	$meta = get_post_meta( $post->ID ,'member_in_charge',true );
 	?>
     <input type="text" name = "member_in_charge" id = "member_in_charge" style="display:none" value = "<?php echo $meta;  ?>" />
-    <?php
-	
-			?>
-</div>
+	</div>
+    <br />
+     <div><strong>附注</strong>：
+	 <?php
+	//4. remark
+	$meta = get_post_meta( $post->ID ,'remark',true );
+	?>
+    <textarea name = "remark" id = "remark"  value = "<?php echo $meta;  ?>" ></textarea>
+	</div>
 	<?php 
 	}
 	

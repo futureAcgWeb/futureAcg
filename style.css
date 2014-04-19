@@ -2,14 +2,18 @@
 Theme Name: Future ACG
 Description: 希望不要烂尾好么
 Author: the Future ACG club
-Version: 1.3
+Version: 1.5
 Tags: black, blue, white, one-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu
 Text Domain: futureACG
 */
 .page-template-page_members-php,
+.single,
 .page-template-page_news-php {
 	background-color: #dcdcdc;
 	}
+.page-template-page_projects-php{
+	background-color: #e3e3e3;
+}
 /*
 for index
 */
@@ -48,6 +52,111 @@ a{
 	font-size: 18px;
 	color: #2c3e50;
 	padding-left: 60px;
+}
+/* =Pages
+-------------------------------------------------------------- */
+
+#content {
+    background: none repeat scroll 0 0 #FAFAFA;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+.entry-title > h1 {
+    font-size: 75px;
+    padding-left: 30px;
+    padding-top: 50px;
+	margin-bottom:0px;
+}
+.entry-title > div {
+    color: #808080;
+    font-size: 14px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+}
+.entry-title {
+    padding-bottom: 10px;
+}
+.entry-content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #CDCDCD;
+	border-bottom:1px solid #808080;
+    line-height: 2;
+    padding: 30px;
+    text-indent: 2em;
+}
+/* =coments
+------------------------------------------------*/
+#comments > h3 {
+    background: none repeat scroll 0 0 #DCDCDC;
+	color:#808080;
+    height: 30px;
+    margin: 0;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+#comments > ol {
+    background: none repeat scroll 0 0 #DCDCDC;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0 0 1px;
+}.says {
+    display: none;
+}
+
+.comment.depth-1 {
+    background: none repeat scroll 0 0 #F4F4F4;
+    margin-bottom: 10px;
+}
+.comment {
+    border-left: 3px solid #ABABAB;
+    padding: 10px 30px;
+}
+.comment > div {
+    min-height: 128px;
+    padding-left: 100px;
+}
+.comment-author.vcard {
+    float: left;
+    margin-left: -100px;
+    margin-right: 10px;
+    width: 100px;
+}
+
+.comment-respond {
+    padding: 30px;
+}
+
+.form-submit > input {
+    background: #dcdcdc;
+    font-family: tahoma;
+    font-size: 20px;
+    padding: 10px;
+}
+.avatar {
+    height: 100px;
+    width: 100px;
+}
+
+
+.comment-awaiting-moderation {
+    color: #808080;
+    font-size: 13px;
+}
+.comment-meta.commentmetadata {
+    font-size: 13px;
+}
+
+.children {
+    list-style: none outside none;
+}
+#submit:hover {
+	background: #ecd291;
+}
+#submit {
+	cursor:pointer;
+	border: none;
 }
 /* =Menu
 -------------------------------------------------------------- */

@@ -2,8 +2,6 @@
 function user_role_init(){
 	 global $wp_roles;
    	$wp_roles->remove_role( "subscriber");
-	//$wp_roles->remove_role( "contributor");
-	//$wp_roles->remove_role( "author");
 	if( null == $wp_roles->get_role( "member")){
 		$wp_roles->add_role( "member","成员",array('read' => 1 )); 
 	}
@@ -32,9 +30,11 @@ add_action("init","user_role_init");
 /*   change the columns                    */
 add_filter('manage_users_columns','position_user_change_columns');
 function position_user_change_columns($columns){
-	unset($columns['email']);
+	unset( $columns['email']);
 	unset( $columns['role'] );
 	unset( $columns['posts'] );
+	unset( $columns['name'] );
+	$columns['display_name'] = '姓名';
 	$columns['positions'] = '职位';
 	$columns['index'] = '主页';
     return $columns;
@@ -60,6 +60,9 @@ function position_user_show_all( $value,$column_name,$user_id){
 			return "[<a href=\"" . get_user_index_url( $user_id ) . "\">主页</a>]";
 		}
 		
+	}elseif( 'display_name' == $column_name ){
+		$user = new WP_User( $user_id );
+		return 	$user->display_name;
 	}
 }
 
@@ -80,7 +83,7 @@ function position_user_row_actions( $actions, $user_object ) {
 	//print_r($user_object);
 	echo "</pre>";
 	$roles = $user_object->roles;
-	$id = 3;
+	$id = $user_object->ID;
 	if( in_array("member",$roles)){
 		if( in_array("team_leader",$roles) ){
 			$actions['unset_team_leader'] = '<a href="'.position_user_url('unset_team_leader',$id ).'">取消队长</a>';

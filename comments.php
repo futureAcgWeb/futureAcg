@@ -2,14 +2,6 @@
 /**
  * The template for displaying Comments.
  *
- * The area of the page that contains both current comments
- * and the comment form. The actual display of comments is
- * handled by a callback to twentyten_comment which is
- * located in the functions.php file.
- *
- * @package WordPress
- * @subpackage Twenty_Ten
- * @since Twenty Ten 1.0
  */
 ?>
 
@@ -51,7 +43,7 @@
 					 * define twentyten_comment() and that will be used instead.
 					 * See twentyten_comment() in twentyten/functions.php for more.
 					 */
-					wp_list_comments( array( 'callback' => 'twentyten_comment' ) );
+					wp_list_comments( array( 'avatar_size' => 100 ) );
 				?>
 			</ol>
 
@@ -69,11 +61,11 @@
 	 */
 	if ( ! comments_open() ) :
 ?>
-	<p class="nocomments"><?php _e( 'Comments are closed.', 'twentyten' ); ?></p>
+	<p class="nocomments"><?php echo '本文不允许评论'; ?></p>
 <?php endif; // end ! comments_open() ?>
 
 <?php endif; // end have_comments() ?>
 
-<?php comment_form(); ?>
+<?php comment_form(array('comment_notes_after'=>'')); ?>
 
 </div><!-- #comments -->

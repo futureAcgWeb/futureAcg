@@ -17,6 +17,11 @@
 #calendar_form .urledit{
 	width: 44px;
 }
+#admin_project_members {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+}
 /*#calendar_form .urladdr {
     width: 300px;
 }
@@ -42,8 +47,10 @@
 
 /* admin page for projectd */
 #admin_project_members > li {
-	display: table-cell;
+	display: block;
 	padding-right: 20px;
+	float: left;
+	margin-bottom: 2px;
 }
 
 .member_in_charge{
