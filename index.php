@@ -13,7 +13,7 @@ get_header(); ?>
         <div class="foucebox">
 	<div class="bd" style="margin-right: 9px;">
 		<div class="showDiv wrap wrapon" id = "wrap-11">
-			<a ><img width="750" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/1.jpg"></a>
+			<a ><img width="750" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/index-1.jpg"></a>
 			<div class="foucebox_bg"></div>
 			<div>
 				<p>清华大学"未来动漫"兴趣团队是清华大学团委科创中心成立的动漫游戏研究创作团队。</p>
@@ -21,7 +21,7 @@ get_header(); ?>
 		</div>
 	
 		<div class="showDiv">
-			<a ><img width="750" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/1.jpg"></a>
+			<a ><img width="750" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/index-2.jpg"></a>
 			<div class="foucebox_bg"></div>
 			<div>
 				<p>团队旨在进行动漫游戏研究与创作，并培养动漫游戏专业创新人才。</p>
@@ -29,7 +29,7 @@ get_header(); ?>
 		</div>
 	
 		<div class="showDiv">
-			<a ><img width="750" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/1.jpg"></a>
+			<a ><img width="750" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/index-3.jpg"></a>
 			<div class="foucebox_bg"></div>
 			<div>
 				<p>团队成员由来自清华的15个不同院系的同学组成，从理工、人文社科、美术等不同领域而来，志在创作属于未来、属于自己的动漫游戏作品。</p>
@@ -37,10 +37,10 @@ get_header(); ?>
 		</div>
 		
 		<div class="showDiv">
-			<a ><img width="750" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/1.jpg"></a>
+			<a ><img width="750" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/index-4.jpg"></a>
 			<div class="foucebox_bg"></div>
 			<div>
-				<p>to be continued...</p>
+				<p>欢迎您的关注与合作！</p>
 			</div>
 		</div>
 		
@@ -50,25 +50,25 @@ get_header(); ?>
 		<ul>
 			<li class="on">
 				<a >
-					<img width="180" height="87" alt="" src="<?php bloginfo('template_url'); ?>/img/1.jpg">
+					<img width="180" height="87" alt="" src="<?php bloginfo('template_url'); ?>/img/index-1.jpg">
 					<span class="mask"></span>
 				</a>
 			</li>
 			<li>
 				<a >
-					<img width="180" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/1.jpg">
+					<img width="180" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/index-2.jpg">
 					<span class="mask"></span>
 				</a>
 			</li>
 			<li>
 				<a >
-					<img width="180" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/1.jpg">
+					<img width="180" height="497" alt="" src="<?php bloginfo('template_url'); ?>/img/index-3.jpg">
 					<span class="mask"></span>
 				</a>
 			</li>
 			<li>
 				<a >
-					<img width="180" height="87" alt="" src="<?php bloginfo('template_url'); ?>/img/1.jpg">
+					<img width="180" height="87" alt="" src="<?php bloginfo('template_url'); ?>/img/index-4.jpg">
 					<span class="mask"></span>
 				</a>
 			</li>
