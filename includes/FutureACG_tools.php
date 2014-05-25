@@ -40,16 +40,14 @@ require_once(dirname(__FILE__)."/user_avatars/simple-local-avatars.php");
 require_once(dirname(__FILE__)."/user_index.php");//personal index 
 require_once(dirname(__FILE__)."/user_index_member_page.php");//the editing page for members
 require_once(dirname(__FILE__)."/user_index_page.php");//the editing page for admins
-
+require_once(dirname(__FILE__)."/user_scores.php");//scoring system
+require_once(dirname(__FILE__)."/user_scores_admin.php");//pages for leader/director scoring system 
 add_action('admin_menu', 'testpage');
 function testpage(){
 	add_menu_page( "test", "test", 1, "test", "testfunction" );
 	}
 function testfunction(){
-	$user = new WP_User(1);
-	echo '<pre>';
-	print_r($user);
-	echo '</pre>';
+		 fACG_score_member_query();
 	}
 
 // This just echoes the chosen line, we'll position it later

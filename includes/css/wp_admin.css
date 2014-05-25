@@ -52,11 +52,38 @@
 	float: left;
 	margin-bottom: 2px;
 }
-
 .member_in_charge{
 	background: #ec7455;
 	color: white;
 }
 #username {
 	width: 500px;
+}
+/* scoring system*/
+#scoredetaildiv{
+	width: 480px;
+}
+#score_descrp_select {
+	width: 190px;
+}
+.score_detail {
+	width: 70px;
+}
+.score_detail_descrp {
+	width: 308px;
+}
+.bottomdirection {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-width: 3px;
+	border-style: solid;
+	border-color: rgb(163, 38, 38) rgb(163, 38, 38) transparent transparent;
+	float: right;
+}
+.score_block {
+	background: #dddddd;
+}
+.score_date {
+	color: gray;
 }

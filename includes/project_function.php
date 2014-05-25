@@ -6,7 +6,7 @@
 function project_member_install(){
 	  global $wpdb;
 	  $table_name = $wpdb->prefix . "project_member";
-	  if($wpdb->get_var("SHOW TABLES LIKE " . $table_name . "") != $table_name){
+	  if(strcasecmp($wpdb->get_var("SHOW TABLES LIKE \"". $table_name . "\""),$table_name) != 0){
 		  $sql = "CREATE TABLE " . $table_name . " (
 			  post_id bigint(20) NOT NULL,
 			  user_id bigint(20) NOT NULL,
@@ -17,8 +17,9 @@ function project_member_install(){
 			  dbDelta($sql);
 	  }
 }
-
 add_action( 'after_setup_theme' ,'project_member_install');
+
+
 function fACG_project_member_update( $post_id, $member_array ){
 	  global $wpdb;
 	  $table_name = $wpdb->prefix . "project_member";
@@ -50,10 +51,12 @@ function fACG_project_get_memberlist( $post_id ){
 	return $user_array;
 }
 //Current members
-function fACG_get_current_members(){
+function fACG_get_current_members( $former = true){
 	
 	$users = get_users( array('role' => "member"));
-	$users = array_merge($users , get_users( array('role' => "former_member")));
+	if( $former ){
+		$users = array_merge($users , get_users( array('role' => "former_member")));
+	}
 	return $users;
 }
 // print functions

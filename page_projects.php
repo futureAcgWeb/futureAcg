@@ -106,7 +106,7 @@ get_header(); ?>
 					<?php the_content("详情>>>"); ?>
                   </div>
                   <div class = "itemdashmid"></div>
-                  <div><p><?php $array = get_post_meta( get_the_ID(), 'remark' ); echo $array[0]; ?></p>
+                  <div class="proj_meta"><p><?php $array = get_post_meta( get_the_ID(), 'remark' ); echo $array[0]; ?></p>
                       <p><?php echo fACG_get_project_type(get_the_ID());?>
                       |项目负责人：<?php echo fACG_get_member_in_charge(get_the_ID()); ?>;&nbsp; 参与成员：<?php fACG_project_get_members(get_the_ID(),array('before'=>'','after'=>',','container'=>false)); ?></p>
                   

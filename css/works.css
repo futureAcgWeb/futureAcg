@@ -1,6 +1,6 @@
 
 
-.workitem p{
+.proj_meta p{
 	font-size: 12px;
 	color: #747577;
 	line-height: 2px;
@@ -103,9 +103,10 @@
 	height: 400px;
 }
 .project_content {
-    font-size: 18px;
-    padding: 10px 36px;
-    text-indent: 2em;
+	font-size: 16px;
+	padding: 10px 36px;
+	text-indent: 2em;
+	line-height: 1.5;
 }
 .navitem.catChosen div {
     color: #F99265;

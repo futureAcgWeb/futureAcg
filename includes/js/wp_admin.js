@@ -152,4 +152,92 @@ jQuery(document).ready(function () {
 			jQuery("#endtimediv").show();
 			}
 		});
+		
+	/* scoring system page **********************************************************/
+	jQuery("#score_descrp_select").change(function(){
+			if(jQuery(this).val()==0){
+				jQuery("#score_descrp").show();
+			}else{
+				jQuery("#score_descrp").hide();
+			}
+		
+		});
+	jQuery("#clear_all").click(function(){
+			jQuery(".score_detail").val("");
+			//transfer the input into json form
+			var str = "[";
+			var flag = false;
+			jQuery("#score_detail_table").find("tr").each(function(){
+				var id = jQuery(this).find(".score_detail").attr("member_id");
+				
+				if(  id > 0 ){
+					str = str + "{ \"id\":" + 	id +", \"score\":";
+					if( jQuery(this).find(".score_detail").val().match(/^[-\+]?\d+(\.\d+)?$/)){
+							str = str + jQuery(this).find(".score_detail").val();
+					}else{
+						str = str + "0";	
+					}
+					str = str +",\"descrp\":\"" + jQuery(this).find(".score_detail_descrp").val() + "\"}";
+					if(!flag){
+						str = str + ",";
+						flag = true;	
+					}
+				}
+				
+			});
+			str = str +"]";
+			jQuery("#score_details").html(str);
+		});
+	jQuery("#copy_fist_row").click(function(){
+			jQuery(".score_detail").val(jQuery(".score_detail").first().val());
+			//transfer the input into json form
+			var str = "[";
+			var flag = false;
+			jQuery("#score_detail_table").find("tr").each(function(){
+				var id = jQuery(this).find(".score_detail").attr("member_id");
+				
+				if(  id > 0 ){
+					str = str + "{ \"id\":" + 	id +", \"score\":";
+					if( jQuery(this).find(".score_detail").val().match(/^[-\+]?\d+(\.\d+)?$/)){
+							str = str + jQuery(this).find(".score_detail").val();
+					}else{
+						str = str + "0";	
+					}
+					str = str +",\"descrp\":\"" + jQuery(this).find(".score_detail_descrp").val() + "\"}";
+					if(!flag){
+						str = str + ",";
+						flag = true;	
+					}
+				}
+				
+			});
+			str = str +"]";
+			jQuery("#score_details").html(str);
+		});
+		
+	jQuery("#score_detail_table").find("input").change(function(){
+			//transfer the input into json form
+			var str = "[";
+			var flag = false;
+			jQuery("#score_detail_table").find("tr").each(function(){
+				var id = jQuery(this).find(".score_detail").attr("member_id");
+				
+				if(  id > 0 ){
+					str = str + "{ \"id\":" + 	id +", \"score\":";
+					if( jQuery(this).find(".score_detail").val().match(/^[-\+]?\d+(\.\d+)?$/)){
+							str = str + jQuery(this).find(".score_detail").val();
+					}else{
+						str = str + "0";	
+					}
+					str = str +",\"descrp\":\"" + jQuery(this).find(".score_detail_descrp").val() + "\"}";
+					if(!flag){
+						str = str + ",";
+						flag = true;	
+					}
+				}
+				
+			});
+			str = str +"]";
+			jQuery("#score_details").html(str);
+		});
 });

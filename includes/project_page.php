@@ -92,7 +92,7 @@ function project_show_box() {
 	//4. remark
 	$meta = get_post_meta( $post->ID ,'remark',true );
 	?>
-    <textarea name = "remark" id = "remark"  value = "<?php echo $meta;  ?>" ></textarea>
+    <textarea name = "remark" id = "remark" ><?php echo $meta;  ?></textarea>
 	</div>
 	<?php 
 	}

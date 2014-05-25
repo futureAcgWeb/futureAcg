@@ -7,7 +7,7 @@
          }
          link.className = "active";
       }
-jQuery(document).ready(function(){
+/*jQuery(document).ready(function(){
 
 	jQuery(".foucebox").slide({
 		effect:"fold",
@@ -19,4 +19,4 @@ jQuery(document).ready(function(){
 		}
 	});
 	
-});
+});*/

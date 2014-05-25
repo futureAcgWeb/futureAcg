@@ -37,8 +37,9 @@
 <link rel="stylesheet"type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/index.css" />
 <script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/jquery.js"> </script>
 <?php if( is_home() ){ ?>
-<script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/index.js"> </script>
 <script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/jquery.SuperSlide.js"> </script>
+<script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/index.js"> </script>
+
 <?php } ?>
 <?php if (is_page('news')){ ?>
 <script type="text/javascript" src = "<?php bloginfo('template_url'); ?>/js/news.js"> </script>

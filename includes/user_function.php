@@ -16,10 +16,13 @@ function user_role_init(){
 	}
 	$role = get_role( 'administrator' );
 	$role->add_cap("modify_positions");
+	$role->add_cap("scoring_system");
 	$role = get_role( 'team_director' );
 	$role->add_cap("modify_positions");
+	$role->add_cap("scoring_system");
 	$role = get_role( 'team_leader' );
 	$role->add_cap("modify_positions");
+	$role->add_cap("scoring_system");
 	
 	//add_submenu_page( 'users.php', '成员设置', '成员设置', 'manage_options', 'member-clert-set', 'member_clert_set' ); 
 	
