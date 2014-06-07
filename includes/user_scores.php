@@ -25,7 +25,8 @@ function member_score_install(){
 			'sql'=> " (
 				  ID bigint(20) AUTO_INCREMENT PRIMARY KEY,
 				  score_date DATE NOT NULL,
-				  project_id bigint(20),
+				  project_score_title bigint(20) NOT NULL,
+				  project_id bigint(20) NOT NULL,
 				  state bool NOT NULL,
 				  time timestamp
 				  );",),

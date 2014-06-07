@@ -80,10 +80,66 @@
 	border-style: solid;
 	border-color: rgb(163, 38, 38) rgb(163, 38, 38) transparent transparent;
 	float: right;
+	margin-bottom: -6px;
 }
 .score_block {
 	background: #dddddd;
 }
 .score_date {
 	color: gray;
+}
+
+.score_delete {
+	font-weight: normal;
+	text-align: right;
+	color: red;
+	margin-top: -20px;
+}
+#scores_table{
+	border-top: solid 1px gray;
+	border-bottom: solid 1px gray;
+}
+#scores_table_wrap{
+	width: auto;
+	overflow-x: auto;
+	width: 750px;
+}
+.editable {
+	cursor: pointer;
+}
+th > li {
+	margin: 0;
+	list-style: none;
+	font-size: 12px;
+}
+.score_detail_edit{
+	width: 66px;
+	font-size: 12px;
+	padding: 0px;
+}
+.block_select{
+	background-color:rgb(226, 167, 167);
+}
+.score_detail{
+	min-width:66px;
+}
+.edit_input {
+	margin: 0px;
+	width: 68px;
+	height: 17px;
+}
+#score_alarm {
+	color: rgb(168, 14, 14);
+	font-weight: bold;
+	font-size: 12px;
+	padding-left: 10px;
+}
+#new_project_scoring {
+	width: 400px;
+	background: white;
+	padding: 10px;
+	border-radius: 5px;
+}
+.add-new-h2{
+	cursor: pointer;
 }

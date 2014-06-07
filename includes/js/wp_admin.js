@@ -171,6 +171,10 @@ jQuery(document).ready(function () {
 				var id = jQuery(this).find(".score_detail").attr("member_id");
 				
 				if(  id > 0 ){
+					if(flag){
+						str = str + ",";
+					}
+					flag = true;
 					str = str + "{ \"id\":" + 	id +", \"score\":";
 					if( jQuery(this).find(".score_detail").val().match(/^[-\+]?\d+(\.\d+)?$/)){
 							str = str + jQuery(this).find(".score_detail").val();
@@ -178,10 +182,6 @@ jQuery(document).ready(function () {
 						str = str + "0";	
 					}
 					str = str +",\"descrp\":\"" + jQuery(this).find(".score_detail_descrp").val() + "\"}";
-					if(!flag){
-						str = str + ",";
-						flag = true;	
-					}
 				}
 				
 			});
@@ -197,6 +197,10 @@ jQuery(document).ready(function () {
 				var id = jQuery(this).find(".score_detail").attr("member_id");
 				
 				if(  id > 0 ){
+					if(flag){
+						str = str + ",";
+					}
+					flag = true;
 					str = str + "{ \"id\":" + 	id +", \"score\":";
 					if( jQuery(this).find(".score_detail").val().match(/^[-\+]?\d+(\.\d+)?$/)){
 							str = str + jQuery(this).find(".score_detail").val();
@@ -204,10 +208,6 @@ jQuery(document).ready(function () {
 						str = str + "0";	
 					}
 					str = str +",\"descrp\":\"" + jQuery(this).find(".score_detail_descrp").val() + "\"}";
-					if(!flag){
-						str = str + ",";
-						flag = true;	
-					}
 				}
 				
 			});
@@ -223,6 +223,10 @@ jQuery(document).ready(function () {
 				var id = jQuery(this).find(".score_detail").attr("member_id");
 				
 				if(  id > 0 ){
+					if(flag){
+						str = str + ",";
+					}
+					flag = true;	
 					str = str + "{ \"id\":" + 	id +", \"score\":";
 					if( jQuery(this).find(".score_detail").val().match(/^[-\+]?\d+(\.\d+)?$/)){
 							str = str + jQuery(this).find(".score_detail").val();
@@ -230,14 +234,204 @@ jQuery(document).ready(function () {
 						str = str + "0";	
 					}
 					str = str +",\"descrp\":\"" + jQuery(this).find(".score_detail_descrp").val() + "\"}";
-					if(!flag){
-						str = str + ",";
-						flag = true;	
-					}
 				}
 				
 			});
 			str = str +"]";
 			jQuery("#score_details").html(str);
 		});
+	//for editing scores
+	jQuery(".editable").dblclick(function(){
+			if( jQuery(this).find("input").length != 0 ){
+				return;	
+			}
+			jQuery(".editable").find("input").each(function(){
+				jQuery(this).parent().html(jQuery(this).val());				
+			});
+			var value = jQuery(this).html();
+			if( jQuery(this).hasClass("score_date") ){
+				var str = '<input name="score_time" type="text" value="' + value + '" class="edit_input score_detail_edit" style="border:1px solid #999;" onclick="fPopCalendar(event,this,this)" onfocus="this.select()" readonly="readonly">';
+				jQuery(this).html(str);
+				jQuery("#change_click").show();
+				var flag = true;
+				// when the date is changed
+				jQuery("td[onclick^='fSetSelected']").click(function(){
+					if( flag ){
+						flag = false;
+						if( jQuery("input[name='score_time']").val() == jQuery("input[name='score_time']").parent().attr("dbvalue")){
+							flag = true;
+							return;
+						}
+						var obj =  jQuery("input[name='score_time']").first();
+						jQuery("#processing").html("正在操作中...");
+						var scoreid = obj.parent().parent().attr("scorename");
+						var data = {
+								'action'	: 	'update_score_details',
+								'table'		:	'score',
+								'type'		:	"score_date",
+								'scoreid'	: 	scoreid,
+								'memberid'	:	-1,
+								'datatype'	: 	'%s',
+								'new'		:	obj.val(),
+							};
+						jQuery.post(ajaxurl, data, function(response) {
+							if( response > 0 ){
+								jQuery("#processing").html("操作完成！");
+								
+							}
+							else{
+								jQuery("#processing").html("更新出现问题，请刷新页面重试！");
+							}
+						});
+						jQuery(".editable").find("input").each(function(){
+							obj.parent().attr("dbvalue") = obj.val();	
+							obj.parent().html(jQuery(this).val());	
+						});
+					}// ---- end of if flag
+				});
+				return;
+			}// --- end of if is score_date 
+			jQuery(this).html('<input type="text" class="edit_input score_detail_edit" value = "'+value+'">');
+			
+			/* 
+			*for changing data
+			*/
+			jQuery(".edit_input").change(function(){
+				//alert(jQuery(this).val());
+				var obj = jQuery(this).parent();
+				jQuery("#processing").html("正在操作中...");
+				var scoreid = obj.parent().attr("scorename");
+				var memberid = obj.parent().attr("scoremember");
+				var datatype = '%s';
+				var newdata = jQuery(this).val();
+				if( obj.attr("info") == 'score'){
+					datatype = '%d';
+				}
+				var table = "score_detail";
+				
+				if( obj.attr("table") == "score" ){
+					table = obj.attr("table");
+					memberid = -1 ;
+				}
+				var data = {
+						'action'	: 	'update_score_details',
+						'table'		:	table,
+						'type'		:	obj.attr("info"),
+						'scoreid'	: 	scoreid,
+						'memberid'	:	memberid,
+						'datatype'	: 	datatype,
+						'new'		:	newdata,
+					};
+				jQuery.post(ajaxurl, data, function(response) {
+/*					jQuery("#processing").html(response);
+					return;*/
+					if( response > 0 ){
+						jQuery("#processing").html("操作完成！");
+						
+					}
+					else{
+						jQuery("#processing").html("更新出现问题，请刷新页面重试！");
+					}
+				});
+				
+				jQuery(".editable").find("input").each(function(){
+					obj.html(newdata);	
+				});
+				
+				// refresh the sum
+				if( obj.attr("info") == "score" ){
+					var sum = 0;
+					jQuery("td[scoremember='" + memberid + "']").each(function(){
+						sum = sum +  parseInt(jQuery(this).find("div:last").html());	
+					});
+					jQuery(".score_sum[scoremember='" + memberid + "']").html(sum);
+				}
+				// refresh the descrp
+				if( obj.attr("info") == "descrp" &&   table == "score_detail"){
+					var obj2 = jQuery("td[scoremember='" + memberid + "'][scorename='"+ scoreid +"']");
+					if( obj2.find(".bottomdirection").length == 0){
+						obj2.children().before("<div class='bottomdirection'></div>");
+					}
+					obj2.attr("title",newdata);
+				}
+			});
+
+		});
+	//for changing a single tuple
+		
+	//for deleting the whole score records
+	jQuery(".score_delete").click(function(){
+		if(!confirm('确认删除此条积分的全部数据？')){
+			return;	
+		}
+		jQuery("#processing").html("正在操作中...");
+		var scoreid = jQuery(this).attr("scoreid");
+		var data = {
+				'action': 'delete_score',
+				'scoreid': scoreid,
+			};
+		  
+		jQuery.post(ajaxurl, data, function(response) {
+			if( response > 0 ){
+				jQuery("#processing").html("操作完成！");
+				jQuery("[scorename='" + scoreid + "']").remove();
+			}
+			else{
+				jQuery("#processing").html("删除出现问题，请刷新页面重试！");
+			}
+		});
+	});	
+	jQuery(".score_block").click(function(){
+		if(jQuery(this).hasClass("block_select")){
+			jQuery(".block_select").removeClass("block_select");
+			jQuery("#detail_descrp_edit").html("");
+			return;
+		}
+		jQuery(".block_select").removeClass("block_select");
+		jQuery(this).addClass("block_select");
+		var obj = jQuery(this).parent()
+		jQuery('th[scorename="'+obj.attr("scorename")+'"]').addClass("block_select");
+		jQuery('th[scoremember="'+obj.attr("scoremember")+'"]').addClass("block_select");
+		var content = jQuery(this).parent().attr("title");
+		if(content == ""){
+			content = "&nbsp;";
+		}
+		jQuery("#detail_descrp_edit").html(content);
+		jQuery("#detail_descrp_edit").parent().attr("scorename",obj.attr("scorename"));
+		jQuery("#detail_descrp_edit").parent().attr("scoremember",obj.attr("scoremember"));
+	});
+	
+	/*
+	*
+	* for new project scoring page
+	******/
+	jQuery('#click_new_ps').click(function(){
+		jQuery("#new_project_scoring").show();
+		jQuery(this).hide();
+		});
+		
+	jQuery('#click_cancel_ps').click(function(){
+		jQuery("#new_project_scoring").hide();
+		jQuery("#click_new_ps").show();
+		});
+	jQuery('#click_submit_ps').click(function(){
+		jQuery("#new_project_scoring").hide();
+		jQuery("#click_new_ps").show();
+		});
+	jQuery('input[name="CheckboxGroup"]').change(function(){
+			var str = "[";
+			var flag = false;
+			jQuery('input[name="CheckboxGroup"]').each(function(){
+				if( jQuery(this).is(':checked') ){
+						if(flag){
+							str = str + ",";	
+						}	
+						flag = true;
+						str = str + jQuery(this).val();
+				}
+			});
+			str = str + "]";
+			jQuery("#projectlist").val(str);
+		});
+	
 });

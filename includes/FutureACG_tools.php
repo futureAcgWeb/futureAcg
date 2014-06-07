@@ -42,6 +42,7 @@ require_once(dirname(__FILE__)."/user_index_member_page.php");//the editing page
 require_once(dirname(__FILE__)."/user_index_page.php");//the editing page for admins
 require_once(dirname(__FILE__)."/user_scores.php");//scoring system
 require_once(dirname(__FILE__)."/user_scores_admin.php");//pages for leader/director scoring system 
+require_once(dirname(__FILE__)."/user_scores_user.php");//pages for members
 add_action('admin_menu', 'testpage');
 function testpage(){
 	add_menu_page( "test", "test", 1, "test", "testfunction" );
