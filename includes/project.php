@@ -119,4 +119,4 @@ function project_perform_filtering( $query ) {
         $qv['project_type'] = $term->slug;
     }
 }  
-?> 
+?>

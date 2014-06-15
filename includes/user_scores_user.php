@@ -31,7 +31,7 @@ function add_group_scoring(){
 	 global $wpdb;
 	 $rslt = $wpdb->get_results("SELECT post_id FROM wp_project_member WHERE user_id = " . $user_ID . " AND participate = 1");
 	 ?>
-     <?php 
+<?php
 	if( sizeof($rslt) != 0 ){
 		add_menu_page( "group_scoring", "组内评分", "read", "group_scoring", "fACG_score_project_scoring_user" , "" , 70.1 );	
 	}

@@ -121,4 +121,4 @@ function calendar_perform_filtering( $query ) {
         $qv['contest_work_type'] = $term->slug;
     }
 }  
-?> 
+?>

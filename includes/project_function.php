@@ -35,7 +35,6 @@ function fACG_project_member_update( $post_id, $member_array ){
 			  }	
 			  $sql = $sql . "(" .  $post_id . ", " . $m . " , 1 ) ";
 		  }
-		  echo $sql;
 		  $wpdb->query($sql);
 	  }//end of 'if the total number of members is more than 1.'
 }

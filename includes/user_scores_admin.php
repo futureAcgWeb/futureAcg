@@ -42,12 +42,13 @@ function fACG_score_member_query( $members , $edit = false){
 	$arr_m = array();
 	foreach($members as $m){
 		array_push($arr_m,$m->ID); 
-	}
+  }
+  $sql_arr = mysql_real_escape_string(implode(',',$arr_m));
 	$sql = "SELECT member_ID, score_id, score, wp_facg_score_detail.descrp
 			FROM  `wp_facg_score_detail` 
 			RIGHT JOIN wp_facg_score ON wp_facg_score_detail.score_id = wp_facg_score.id
 			WHERE member_ID
-			IN ( " . implode(',',$arr_m) . " ) 
+			IN ( " . $sql_arr . " ) 
 			ORDER BY member_ID
 			";
 	global $wpdb;
@@ -62,7 +63,7 @@ function fACG_score_member_query( $members , $edit = false){
 
 	$member_ids = array();
 	foreach($members as $m){
-		$member_ids[$m->ID]= $m->first_name. " " . $m->last_name; 
+		$member_ids[$m->ID]= $m->nickname;//$m->first_name. " " . $m->last_name; 
 	}
 	
 	$score_sum = $wpdb->get_results("
@@ -89,7 +90,7 @@ function fACG_score_member_query( $members , $edit = false){
 		$score_details[$k]["sum"] = 0;
 	}
 	foreach($members as $m){
-		$score_details[$m->ID]["name"] = $m->first_name. " " . $m->last_name; 
+		$score_details[$m->ID]["name"] = $m->nickname;// $m->first_name. " " . $m->last_name; 
 		$score_details[$m->ID]["ID"] = $m->ID;
 	}
 	
@@ -310,7 +311,7 @@ function fACG_score_new_member_query(){
           </tr>
             <?php
             foreach($members as $m){
-                $name = $m->first_name. " " . $m->last_name;
+                $name =  $m->nickname;//$m->first_name. " " . $m->last_name;
             
                 ?>
                   <tr>
